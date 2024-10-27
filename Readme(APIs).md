@@ -3,7 +3,7 @@
 2. [What is a REST API?](#what-is-a-rest-api)
 3. [What is the difference between PATCH and PUT?](#what-is-the-difference-between-patch-and-put)
 
-## 1.What is an API?
+## 1. What is an API?
 An API (Application Programming Interface) is a set of rules and protocols for building and interacting with software applications. It defines the methods and data formats that applications can use to request and exchange information.
 
 ### Key Points:
@@ -14,7 +14,7 @@ An API (Application Programming Interface) is a set of rules and protocols for b
 
 ---
 
-## 2.What is a REST API?
+## 2. What is a REST API?
 A REST API (Representational State Transfer API) is a type of web service that adheres to the principles of REST architecture.
 
 ### Key Features:
@@ -28,7 +28,7 @@ Commonly used in web applications, mobile applications, and microservices archit
 
 ---
 
-## 3.What is the difference between PATCH and PUT?
+## 3. What is the difference between PATCH and PUT?
 The main difference between PATCH and PUT lies in how they update resources on a server.
 
 ### Key Differences:
