@@ -163,3 +163,58 @@ End
 Timer callback
 ```
 ---
+### What is JWT (JSON Web Token)?
+
+**JWT (JSON Web Token)** is an open standard (RFC 7519) used for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed, typically using a secret (HMAC) or a public/private key pair (RSA or ECDSA).
+
+### How Does JWT Work?
+
+1. **Client Authentication**:
+   - The client sends credentials (such as username and password) to the server for authentication.
+2. **Token Generation**:
+   - If the credentials are valid, the server generates a JWT and sends it back to the client. The token contains claims (information like user ID or permissions) encoded in a JSON object.
+3. **Token Structure**:
+   - A JWT consists of three parts:
+     - **Header**: Contains the type of token (`JWT`) and the signing algorithm (e.g., `HS256`).
+     - **Payload**: Contains claims about the user or other metadata.
+     - **Signature**: Ensures the token hasn’t been altered. It is created by encoding the header and payload and signing them with a secret or private key.
+   - Example of a JWT structure: `header.payload.signature`.
+4. **Client Stores Token**:
+   - The client stores the token (commonly in local storage or a cookie) and attaches it to the `Authorization` header for future requests.
+5. **Server Verification**:
+   - When the client makes a request, the server verifies the token using the secret or public key. If the token is valid, the server processes the request and returns a response.
+
+**Example of a JWT Token:**
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+
+### Why Do We Use JWT?
+
+- **Stateless Authentication**: JWT allows for stateless authentication, eliminating the need to store session information on the server.
+- **Scalability**: Since session data isn’t stored server-side, applications can easily scale horizontally (e.g., across multiple servers or instances).
+- **Security**: JWTs can be signed and encrypted to ensure the integrity and confidentiality of the data transmitted.
+- **Portability**: JWTs are URL-safe and can be transmitted via query parameters, headers, or cookies.
+
+### Challenges Faced Without JWT
+
+1. **Session Management**:
+   - Without JWT, authentication often relies on server-side session storage. This can be harder to manage at scale because each server needs to access the session store, leading to potential consistency issues.
+
+2. **Scalability Issues**:
+   - Applications that rely on server-side sessions may need to synchronize session data across multiple servers or instances, making horizontal scaling complex.
+
+3. **Performance Overhead**:
+   - Storing and retrieving session data from a database or server memory can introduce latency.
+
+4. **Cross-domain Authentication**:
+   - JWT is ideal for Single Sign-On (SSO) as it can be used across different domains and services securely, a feature not easily achieved with server-side sessions.
+
+**Example Workflow Using JWT:**
+1. User logs in and sends credentials to the server.
+2. Server verifies credentials and returns a signed JWT.
+3. User stores the JWT and sends it with subsequent requests.
+4. Server verifies the JWT’s signature before responding to the request.
+
+---
+
+By using JWT, developers can implement a secure, scalable, and stateless authentication system in their applications.
