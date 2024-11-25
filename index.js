@@ -1,25 +1,31 @@
-// let http = require("http");
-
-// // console.log(http)
-// let app = (req, res) => {
-//   res.end("Hello world from node.js");
-// };
-// http.createServer(app).listen(3000, () => {
-//   console.log("searver start at port 3000");
-// });
-
-let port = process.env.port || 3000;
 const express = require("express");
-// console.log(express)
-let app = express();
+const cors = require("cors");
+const axios = require("axios");
 
-// app.use( (req,res) => {
-//   res.send("Hello world from express");
-// });
-app.get("/", (req, res) => {
-  res.send("Hello world from express");
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+const API_BASE_URL = "http://stageapi.monkcommerce.app/task/products/search";
+const API_KEY = "72njgfa948d9aS7gs5";
+
+// Use CORS middleware
+app.use(cors());
+
+app.get("/api/products", async (req, res) => {
+  const { search = "Hat", page = 1, limit = 10 } = req.query;
+
+  try {
+    const response = await axios.get(API_BASE_URL, {
+      params: { search, page, limit },
+      headers: { "x-api-key": API_KEY },
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
-app.listen(port, () => {
-  console.log(`server start at ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
