@@ -72,3 +72,9 @@ if (command === "start") {
   console.log("Stopping...");
 }
 ```
+⭐️ npm i yargs ⭐️
+- It is used for parsing command line arguments
+- It is used for creating a command line interface
+
+🚀 Note-
+fs.writeFileSync("book.json", data);
