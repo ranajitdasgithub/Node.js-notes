@@ -57,3 +57,18 @@ log(chalk.blue.bgRed.bold("Hello world!"));
 // Pass in multiple arguments
 log(chalk.blue("Hello", "World!", "Foo", "bar", "biz", "baz"));
 ```
+
+## 🚀 Note- we can acces command prompt using process.argv
+
+- process.argv[0] is the path to the node executable
+- process.argv[1] is the path to the script being run
+- process.argv[2] is the first argument passed to the script
+
+```javascript
+const command = process.argv[2];
+if (command === "start") {
+  console.log("Starting...");
+} else if (command === "stop") {
+  console.log("Stopping...");
+}
+```

@@ -28,3 +28,6 @@ const log = console.log;
 log(chalk.blue("Hello") + " World" + chalk.red("!"));
 log(chalk.blue.bgRed.bold("Hello world!"));
 log(chalk.yellow("Hello", "Foo", "bar", "biz", "baz"));
+
+
+
