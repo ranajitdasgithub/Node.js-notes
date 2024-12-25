@@ -76,5 +76,9 @@ if (command === "start") {
 - It is used for parsing command line arguments
 - It is used for creating a command line interface
 
-🚀 Note-
-fs.writeFileSync("book.json", data);
+### 🚀 Note-
+- fs.writeFileSync("book.json", data);
+- const noteBuffer = fs.readFileSync("sampleNote.json");
+
+### 🚀 Note- Debugger
+-  We can write 'debugger' for debugging in node.js and using "node inspect app.js" command
