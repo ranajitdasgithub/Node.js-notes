@@ -81,4 +81,6 @@ if (command === "start") {
 - const noteBuffer = fs.readFileSync("sampleNote.json");
 
 ### 🚀 Note- Debugger
--  We can write 'debugger' for debugging in node.js and using "node inspect app.js" command
+-  We can write 'debugger' for debugging in node.js 
+- using "node inspect app.js" command for 'Mac"
+- using "node --inspect-brk app.js" command for 'Windows'
